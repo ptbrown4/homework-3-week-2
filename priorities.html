@@ -40,7 +40,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script>
     var currentPriority = ""
-    var priorities = [{'name': 'chicken', level: 1}]
+    var priorities = [{'name': 'terry', level: 1}]
     function addNewPriority(event){
       var nextPriorityLevel = priorities.length + 1
       priorities.push({name: currentPriority, level: nextPriorityLevel})
@@ -96,14 +96,40 @@
     }
 
     // Trying to create a delete button
-function deletePriority(name) {
-  var priority = priorities.filter(p => p.name === name);
-  console.log(priority);
-  
-  drawPriorities();
-    }
+// function deletePriority(name) {
+//   var priority = priorities.find(p => p.name === name);
+//   console.log(priority);
+//   return !(priority.name === name)
+//     }
 
-    drawPriorities()
+//     drawPriorities();
+// priorities.filter(deletePriority);
+drawPriorities();
+  </script>
+  <script>
+//   var reducePractice = [1, 2, 3, 4, 5]
+// function reduceCallback(acc, e) {
+//   return acc + e;
+// }
+
+// var answer = reducePractice.reduce(reduceCallback)
+// console.log(answer)
+
+var allThreePractice = [{name: "zach", age: 28} , {name: "bob", age: 14}, {name: "carson", age: 25}]
+var mapCallBack = (o) => {return o.age;}
+var filterCallback = (e) => {return e > 21};
+var reduceCallback = (acc, n) => acc + n;
+// the below is called chaining, and putting them on new lines is just more pretty
+var answer = allThreePractice
+  .map(mapCallBack)
+  .filter(filterCallback)
+  .reduce(reduceCallback)
+
+// same as
+var answer = allThreePractice.map(mapCallBack).filter(filterCallback).reduce(reduceCallback)
+
+console.log(answer)
+// answer should be 53
 
 
   </script>
