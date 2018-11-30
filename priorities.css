@@ -2,3 +2,8 @@
 .float-buttons {
  float: right;
 }
+
+.float-inputs {
+    margin-right: 4px; 
+    margin-left: 10px;
+}

@@ -82,9 +82,12 @@
           var disabledHigher = x.level === 1 ? 'disabled': ''
           var disabledLower = x.level === priorities.length ? 'disabled': ''
           return `<li class="list-group-item">
+          <span class="float-inputs">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          </span>
           <span class="badge badge-primary badge-pill"> ${x.level} </span>
           <span>${x.name}</span>
-          <span class="float-buttons">
+          <span class="float-buttons"> 
             <button ${disabledHigher} onclick="return makeHigherPriority('${x.name}')" type="button" class="btn btn-sm btn-outline-primary">Make Higher Priority</button>
             <button ${disabledLower} onclick="return makeLowerPriority('${x.name}')" type="button" class="btn btn-sm btn-outline-secondary">Make Lower Priority</button>
             <button onclick="return deletePriority('${x.name}')" type="button" class="btn btn-sm btn-outline-secondary">X</button>
@@ -94,6 +97,7 @@
         .join("")
       list.innerHTML = currentPriorities
     }
+
 
     // Trying to create a delete button
 // function deletePriority(name) {
