@@ -7,3 +7,12 @@
     margin-right: 4px; 
     margin-left: 14px;
 }
+
+.cat {
+    background-color : #fcfafa;
+  }
+  
+  .background_selected {
+    background-color : #f6fa23;
+    font-size: 24px;
+  }

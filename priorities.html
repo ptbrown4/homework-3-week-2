@@ -81,13 +81,14 @@
         .map(x => {
           var disabledHigher = x.level === 1 ? 'disabled': ''
           var disabledLower = x.level === priorities.length ? 'disabled': ''
-          return `<li class="list-group-item">
+          return `<li class="list-group-item cat" id="listItem">
           <span class="float-inputs">
           <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
           </span>
           <span class="badge badge-primary badge-pill"> ${x.level} </span>
           <span>${x.name}</span>
           <span class="float-buttons"> 
+            <button onclick="return makeDailyHighlight('${x.name}')" type="button" class="btn btn-sm btn-outline-primary">Make Daily Highlight</button>
             <button ${disabledHigher} onclick="return makeHigherPriority('${x.name}')" type="button" class="btn btn-sm btn-outline-primary">Make Higher Priority</button>
             <button ${disabledLower} onclick="return makeLowerPriority('${x.name}')" type="button" class="btn btn-sm btn-outline-secondary">Make Lower Priority</button>
             <button onclick="return deletePriority('${x.name}')" type="button" class="btn btn-sm btn-outline-secondary">X</button>
@@ -98,16 +99,22 @@
       list.innerHTML = currentPriorities
     }
 
+    function makeDailyHighlight(name) {
+      $('.cat').on('click', function(){
+        $(this).toggleClass('background_selected');
+    });
+    }
 
-    // Trying to create a delete button
-// function deletePriority(name) {
-//   var priority = priorities.find(p => p.name === name);
-//   console.log(priority);
-//   return !(priority.name === name)
-//     }
+function deletePriority(name) {
+  $('#listItem a.clearitem').on('click', function(){
+  $(this).parent().remove();
+});
+var priority = priorities.find(p => p.name === name)
+var selecting = (e) => {return e.name !== name}
+var deleting = priorities.filter(selecting);
+};
 
-//     drawPriorities();
-// priorities.filter(deletePriority);
+
 drawPriorities();
   </script>
   <script>
