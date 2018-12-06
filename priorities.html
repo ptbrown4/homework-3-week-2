@@ -112,6 +112,7 @@ function deletePriority(name) {
 var priority = priorities.find(p => p.name === name)
 var selecting = (e) => {return e.name !== name}
 var deleting = priorities.filter(selecting);
+drawPriorities();
 };
 
 
