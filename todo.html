@@ -48,9 +48,13 @@
       document.getElementById('inputToDo').value='';
       var alreadyHaveToDo = toDos.find(t => input === t.name);
       console.log(alreadyHaveToDo)
-      if (input === toDos.name) {
-        alreadyHaveToDo.className -= " hide-alert"
-        return
+      if (alreadyHaveToDo === toDos[toDos.length - 1]) {
+        var alert = document.getElementById("alert")
+        alert.classList.remove("hide-alert")
+        var nextToDoLevel = toDos.length + 1
+      toDos.push({name: currentToDo, level: nextToDoLevel, completed: false, highlight: false})
+      drawToDos();
+      return false;
       } else {
       var nextToDoLevel = toDos.length + 1
       toDos.push({name: currentToDo, level: nextToDoLevel, completed: false, highlight: false})
